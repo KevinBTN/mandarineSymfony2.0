@@ -30,11 +30,23 @@
           <a class="nav-link" href="../gite">Gites</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Recherche">
-        <button class="btn btn-outline-success" type="submit">Recherche</button>
-      </form>
     </div>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <span>Bienvenue, <b>{{ app.user.username }}</b></span>
+                        <a class="btn btn-danger" href="../logout">Deconnexion</a>
+                    </li>
+                {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../login">Se connecter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../register">S'inscrire</a>
+                    </li>
+                </ul>
+                {% endif %}
   </div>
 </nav>
     <body class="container">

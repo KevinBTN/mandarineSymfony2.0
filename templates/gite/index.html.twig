@@ -3,18 +3,20 @@
 {% block title %}Hello GiteController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container mt-5 centralcontent">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {% for gite in gites|reverse %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/upsil/Documents/COURS AFPA/mandarineSymfony2.0/src/Controller/GiteController.php'|file_link(0) }}">src/Controller/GiteController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/upsil/Documents/COURS AFPA/mandarineSymfony2.0/templates/gite/index.html.twig'|file_link(0) }}">templates/gite/index.html.twig</a></code></li>
-    </ul>
+    <div class="card flex-row article"><img class="card-img-left example-card-img-responsive img-fluid"
+            src="" height="30%" width="30%" />
+        <div class="card-body">
+            <h4 class="card-title h5 h4-sm">{{ gite.titre }}</h4>
+            <p class="card-text">{{ gite.description|slice(0, 30) }}...</p>
+            <a href="/gite/{{gite.id}}" class="btn btn-primary">Voir l'annonce</a>
+        </div>
+    </div>
+
+    {% endfor %}
+
 </div>
 {% endblock %}

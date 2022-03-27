@@ -34,7 +34,7 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item">
-                        <span>Bienvenue, <b>{{ app.user.username }}</b></span>
+                        <span>Bienvenue, <b>{{ app.user.nom }} {{ app.user.prenom }}</b></span>
                         <a class="btn btn-danger" href="../logout">Deconnexion</a>
                     </li>
                 {% else %}

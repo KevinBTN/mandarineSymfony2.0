@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Gite;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,6 +17,14 @@ class GiteController extends AbstractController
 
         return $this->render('gite/index.html.twig', [
             'gites' => $gites
+        ]);
+    }
+
+    #[Route('/gite/{id}', name: 'show_gite')]
+    public function show(Gite $gite)
+    {
+        return $this->render('gite/gite.html.twig', [
+            'gite' => $gite
         ]);
     }
 }

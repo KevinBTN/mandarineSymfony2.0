@@ -5,8 +5,10 @@
 {% block stylesheets %}
     {{ parent() }}
     <style>
+        body{
+            font-family: Helvetica, Arial, sans-serif;
+        }
         .corp{
-            background-color: lightgray;
             color: rgba(0, 0, 0, 0.5);
             border-radius: 20px;
         } 
@@ -31,15 +33,15 @@
         </div>
         <div class="row" style="color: rgba(0, 0, 0, 0.5);">
             <div class="col-4 mt-3">
-                <img style="width: 100px;" src="https://media.istockphoto.com/vectors/handshake-icon-vector-illustration-vector-id967255466?k=20&m=967255466&s=612x612&w=0&h=sNJbzLaXi0QG-Osr-pqFkqxqeBapItR319vwHOdOAUg=" alt="">
+                <img style="height: 100px;" src="{{ asset('/build/photos/kisspng-handshake-clip-art-logo-stock-photography-vector-g-startups-ch-wir-helfen-neugrnderinnen-aus-leide-5d059cac5a7743.7505357115606488763706.png') }}" alt="">
                 <p class="mt-3">Gîtes Mandarine, le leader français du tourisme chez l’habitant depuis plus de 50 ans</p>
             </div>
             <div class="col-4 mb-5 mt-3">
-                <img style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/13/13979.png" alt="">
+                <img style="height: 100px;" src="https://cdn-icons-png.flaticon.com/512/13/13979.png" alt="">
                 <p class="mt-3">Des hébergements visités et contrôlés selon un référentiel de classement national</p>
             </div>
             <div class="col-4 mb-5 mt-3">
-                <img style="width: 100px;" src="https://thumbs.dreamstime.com/b/ic%C3%B4ne-de-degr%C3%A9-s%C3%A9curit%C3%A9-bouclier-coutil-noire-et-blanche-117564073.jpg" alt="">
+                <img style="height: 100px;" src="{{  asset('/build/photos/cltp4g0m565n2gbm2ks5lv6226.png') }}" alt="">
                 <p class="mt-3">Des centaines de collaborateurs au sein de nos agences locales à votre service avant, pendant et après votre séjour.</p>
             </div>
         </div>

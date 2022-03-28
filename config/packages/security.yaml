@@ -37,8 +37,8 @@ security:
   access_control:
     - { path: ^/admin, roles: ROLE_ADMIN }
     - { path: ^/profile, roles: ROLE_USER }
-    - { path: ^/dashboardclient, roles: ROLE_CLIENT }
-    - { path: ^/dashboardproprietaire, roles: ROLE_PROPRIETAIRE }
+    - { path: ^/dashboard, roles: ROLE_CLIENT }
+    - { path: ^/dashboard, roles: ROLE_PROPRIETAIRE }
 
 when@test:
   security:

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row dashboard-wrapper">
+    <h1>Bienvenu chez vous</h1>
+        <div class="col-md-6 offset-3 bg-dark p-4 register-bg">
+            <div class="row ">
+                {% if is_granted('ROLE_CLIENT', 'ROLE_PROPRIETAIRE') %}
+                    <p>{{ app.user.nom }}</p>
+                    <p>{{ app.user.prenom }}</p>
+                    <p>{{ app.user.telephone }}</p>
+                    <p>{{ app.user.email }}</p>
+                    <div class="col-md-2 offset-5"><a href="#" class="btn btn-light">Proposer son logement</a></div>
+                {% endif %} 
+                {% if is_granted('ROLE_PROPRIETAIRE') %}
+                <h2>Mes annonces</h2>
+                    
+                {% endif %} 
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

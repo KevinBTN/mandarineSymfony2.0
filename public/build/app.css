@@ -131,3 +131,46 @@ body {
     vertical-align: middle;
   }
 }
+
+/*Registration form*/
+.register-wrapper {
+  display: table;
+  width: 100%;
+  height: 600px;
+  background: url("photos/register-background.jpg");
+  opacity: 1.5;
+  height: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  margin-top: -56px;
+  padding-top: 70px;
+}
+.register-bg {
+  opacity: 0.95;
+  border-radius: 2%;
+}
+/*Dashboard*/
+.dashboard-wrapper {
+  display: table;
+  width: 100%;
+  height: 600px;
+  background: url("photos/dashboard.jpg");
+  opacity: 1.5;
+  height: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  margin-top: -56px;
+  padding-top: 70px;
+}
+.dashboard-bg {
+  opacity: 0.95;
+  border-radius: 2%;
+}

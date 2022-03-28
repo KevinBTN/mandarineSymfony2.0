@@ -1,20 +1,40 @@
-{% extends 'base.html.twig' %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
 
-{% block title %}Hello DefaultController!{% endblock %}
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+                    {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        
+        <div class="container">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/upsil/Documents/COURS AFPA/mandarineSymfony2.0/src/Controller/DefaultController.php'|file_link(0) }}">src/Controller/DefaultController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/upsil/Documents/COURS AFPA/mandarineSymfony2.0/templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Envie de vous dépayser?</h1>
+            <p class="lead">Vos prochaine vacances vous attendes ici. Découvrez des centaines de gites dans des endroits fabuleux.</p>
+            <p class="lead">
+              <a href="/gite" class="btn btn-lg btn-default">Partir maintenant</a>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
 {% endblock %}

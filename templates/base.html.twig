@@ -9,15 +9,15 @@
 
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
-        {% endblock %}
+            <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+                    {% endblock %}
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Symfony</a>
+    <a class="navbar-brand" href="/">Symfony</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,7 +49,7 @@
                 {% endif %}
   </div>
 </nav>
-    <body class="container">
+    
         {% block body %}{% endblock %}
-    </body>
+    
 </html>

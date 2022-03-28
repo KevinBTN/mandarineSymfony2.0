@@ -4,16 +4,42 @@
 
 {% block body %}
 
-<div class="container mt-5">
+<div style="
+    height: 350px;
+        width:100%;
+        background-image: url(https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+        background-position: center;
+        background-repeat:no-repeat;
+        background-size:cover;">
 
-    <div class="d-flex justify-content-center">
-
+    <div class="d-flex justify-content-center pt-5">
         <div>
             <h1 class="h1gite">{{ gite.titre }}</h1>
-            <p>{{ gite.description }}</p>
+            
         </div>
-
     </div>
+</div>
+<div class="container my-4" style="color: black;">
+    <div class="row">
+        <div class="col-sm-12 col-lg-8 text-start">
+            <h2 class="mb-3">Description</h2>
+            <p>{{ gite.description }}</p>           
+        </div>
+        <div class="col-sm-12 col-lg-4 text-end">
+            <h2 class="mb-3">Propriétaire</h2>
+            <h5>Nom Prénom</h5>
+            <p>
+                test@test.fr<br>
+                07.08.09.10.11
+            </p>
+        </div>
+    </div> 
+    <div class="row mt-5">
+        <div class="col-sm-12">
+            <h2 class="mb-3">Localisation</h2>
+            <iframe class="col-sm-12" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92947.66782321839!2d5.310608743859048!3d43.28044890786244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9bf4344da5333%3A0x40819a5fd970220!2sMarseille!5e0!3m2!1sfr!2sfr!4v1648475427031!5m2!1sfr!2sfr" width="500" height="200" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>   
 </div>
 
 

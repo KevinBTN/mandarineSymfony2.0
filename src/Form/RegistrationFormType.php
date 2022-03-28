@@ -11,7 +11,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -21,7 +23,9 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('nom')
             ->add('prenom')
-            ->add('telephone')
+            ->add('telephone', TelType::class, ['constraints' => new Regex("#^0[1-9]([-. ]?[0-9]{2}){4}$#"),
+            
+        ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [

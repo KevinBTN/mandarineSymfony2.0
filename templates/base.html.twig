@@ -34,7 +34,7 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item">
-                        <span>Bienvenue, <b>{{ app.user.nom }} {{ app.user.prenom }}</b></span>
+                        <span class="mx-3">Bienvenue, <a href="/dashboard"><b>{{ app.user.prenom | capitalize }} {{ app.user.nom | capitalize}}</b></a></span>
                         <a class="btn btn-danger" href="../logout">Deconnexion</a>
                     </li>
                 {% else %}

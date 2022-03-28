@@ -1,0 +1,10 @@
+{
+    "content_scripts": [
+        {
+            "matches": ["http://*/*"],
+            "css": ["./assets/styles/app.css"],
+            "js": ["./assets/app.js"]
+        }
+    ],    
+    "start_url": "/index.html"
+}

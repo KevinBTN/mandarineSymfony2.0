@@ -26,14 +26,42 @@
             <p>{{ gite.description }}</p>           
         </div>
         <div class="col-sm-12 col-lg-4 text-end">
-            <h2 class="mb-3">Propriétaire</h2>
-            <h5>Nom Prénom</h5>
-            <p>
-                test@test.fr<br>
-                07.08.09.10.11
-            </p>
-            <a href="/register" class="btn btn-dark">Réserver</a>
+            <a href="/register" class="btn btn-dark mb-2">Réserver</a><br>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Demande de contact</button>
         </div>
+
+        <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin:auto">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="margin: auto;">
+                    <h5 class="modal-title" id="exampleModalLabel">Formulaire de contact</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Numéro de Gîte</label>
+                            <input type="number" class="form-control text-center" id="exampleFormControlInput1" value="{{ gite.id }}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Votre Email</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="votre@email.fr" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Votre message</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Votre message. . ." required></textarea>
+                        </div>
+                        <div class="my-2">
+                            <button type="button" class="btn btn-danger mx-2" data-bs-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-secondary">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     </div> 
     <div class="row mt-5">
         <div class="col-sm-12">

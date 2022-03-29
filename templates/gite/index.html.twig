@@ -38,10 +38,21 @@
         {
         background-color: rgba(0, 0, 0, 0.5);
         }
+        #scrollUp
+        {
+        position: fixed;
+        bottom : 20px;
+        right: 20px;
+        opacity: 0.5;
+        }
+        #scrollUp:hover
+        {
+        opacity: 0.8;
+        }
     </style>
 {% endblock %}
 
-{% block body %}
+{% block body %}   
 
 <div class="entete pt-5">
     <div class="container">
@@ -122,6 +133,9 @@
     <div class="d-flex justify-content-center mt-3">
         {{ knp_pagination_render(gites, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
     </div>
+    </div>
+    <div id="scrollUp">
+        <a href="#top"><img src="{{ asset('/build/photos/to_top.png') }}"/></a>
     </div>
 {% endblock %}
 

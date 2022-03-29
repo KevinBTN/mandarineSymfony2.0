@@ -2,35 +2,44 @@
 {% block title %}Mon compte{% endblock %} 
 
 {% block body %}
-<div class="row dashboard-wrapper">
-    <div class=" bg-dark dashboard-bg py-5">
-        <div class="p-5">
-            <h1 class=" m-5">Bienvenue chez vous</h1>
-        </div>
-            <div class="col-md-4 offset-4  p-4">
-                <div class="row my-4">
-                    {% if is_granted('ROLE_CLIENT') %}
-                        <div class="col-md-10 offset-1"><h2>Vos informations de compte </h2> </div><div class="col-md-1"><a href="#"><i class="fa fa-edit" style="font-size:30px"></i></a></div>
-                        <hr>
-                        <p>Nom: {{ app.user.nom | capitalize}}</p>
-                        <hr>
-                        <p>Prénom: {{ app.user.prenom | capitalize}}</p>
-                        <hr>
-                        <p>Téléphone: {{ app.user.telephone }}</p>
-                        <hr>
-                        <p>Email: {{ app.user.email }}</p>
-                        <hr>
-                        <div class="col-md-4 offset-4"><a href="#" class="btn btn-light">Proposer un logement</a></div>
-                    {% endif %} 
-                </div>
+<body class="dashboard-wrapper">
+ 
+        <div class=" row bg-dark dashboard-bg pt-5">
+            <div class="p-5">
+                <h1 class=" m-5">Bienvenue chez vous</h1>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <div class="mt-5">
+                            <a class="btn btn-light" href="/admin">Dashboard admin</a>
+                            </div>
+                        {% endif %} 
             </div>
-                    {% if is_granted('ROLE_PROPRIETAIRE') %}
-                    <div class="mt-5">
-                    <h2>Mes annonces</h2>
+                <div class="col-md-4 offset-4  p-4">
+                    <div class="row my-4">
+                        
+                            <div class="col-md-10 offset-1"><h2>Vos informations de compte </h2> </div><div class="col-md-1"><a href="#"><i class="fa fa-edit" style="font-size:30px"></i></a></div>
+                            <hr>
+                            <p>Nom: {{ app.user.nom | capitalize}}</p>
+                            <hr>
+                            <p>Prénom: {{ app.user.prenom | capitalize}}</p>
+                            <hr>
+                            <p>Téléphone: {{ app.user.telephone }}</p>
+                            <hr>
+                            <p>Email: {{ app.user.email }}</p>
+                            <hr>
+                        {% if 'ROLE_CLIENT' in app.user.getroles(TRUE)   %}
+                            <div class="col-md-4 offset-4">
+                            <a href="#" class="btn btn-light">Ajouter une annonce</a></div>
+                        {% endif %} 
                     </div>
-                    {% endif %} 
+                </div>
+                        {% if is_granted('ROLE_PROPRIETAIRE') %}
+                        <div class="mt-5">
+                        <h2>Mes annonces</h2>
+                        </div>
+                        {% endif %} 
 
-    </div>
-</div>
+        </div>
+
+</body>
 
 {% endblock %}

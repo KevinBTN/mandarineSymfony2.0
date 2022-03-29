@@ -3,25 +3,32 @@
 
 {% block body %}
 <div class="row dashboard-wrapper">
-    <div>
-        <h1 class="text-dark m-5">Bienvenue chez vous</h1>
-    </div>
-        <div class="col-md-6 offset-3 bg-dark p-4 register-bg">
-            <div class="row my-4">
-                {% if is_granted('ROLE_CLIENT', 'ROLE_PROPRIETAIRE') %}
-                    <h2>Vos informations de compte</h2>
-                    <p>Nom: {{ app.user.nom | capitalize}}</p>
-                    <p>Prénom: {{ app.user.prenom | capitalize}}</p>
-                    <p>Téléphone: {{ app.user.telephone }}</p>
-                    <p>Email: {{ app.user.email }}</p>
-                    <div class="col-md-2 offset-5"><a href="#" class="btn btn-light">Proposer son logement</a></div>
-                {% endif %} 
-                {% if is_granted('ROLE_PROPRIETAIRE') %}
-                <h2>Mes annonces</h2>
-                    
-                {% endif %} 
-            </div>
+    <div class=" bg-dark dashboard-bg py-5">
+        <div class="p-5">
+            <h1 class=" m-5">Bienvenue chez vous</h1>
         </div>
+            <div class="col-md-4 offset-4  p-4">
+                <div class="row my-4">
+                    {% if is_granted('ROLE_CLIENT', 'ROLE_PROPRIETAIRE') %}
+                        <div class="col-md-10 offset-1"><h2>Vos informations de compte </h2> </div><div class="col-md-1"><a href="#"><i class="fa fa-edit" style="font-size:30px"></i></a></div>
+                        <hr>
+                        <p>Nom: {{ app.user.nom | capitalize}}</p>
+                        <hr>
+                        <p>Prénom: {{ app.user.prenom | capitalize}}</p>
+                        <hr>
+                        <p>Téléphone: {{ app.user.telephone }}</p>
+                        <hr>
+                        <p>Email: {{ app.user.email }}</p>
+                        <hr>
+                        <div class="col-md-4 offset-4"><a href="#" class="btn btn-light">Proposer son logement</a></div>
+                    {% endif %} 
+                    {% if is_granted('ROLE_PROPRIETAIRE') %}
+                    <h2>Mes annonces</h2>
+                        
+                    {% endif %} 
+                </div>
+            </div>
     </div>
+</div>
 
 {% endblock %}

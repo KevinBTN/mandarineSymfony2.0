@@ -5,26 +5,28 @@
 {% block body %}
     
     <div class="row register-wrapper">
-    <h1>Register</h1>
-        <div class="col-md-6 offset-3 bg-dark p-4 register-bg">
-            <div class="row ">
-                {{ form_start(registrationForm) }}
-                    <div class="col-6 offset-3">
-                        <div class="form-outline">
-                            {{ form_row(registrationForm.nom, {'label': 'Nom'}) }}
-                            {{ form_row(registrationForm.prenom, {'label': 'Prénom'}) }}
-                            {{ form_row(registrationForm.telephone, {'label': 'N° de Téléphone'}) }}
-                            {{ form_row(registrationForm.email, {'label': 'Adresse email'}) }}
-                            {{ form_row(registrationForm.password.first, {'label': 'Mot de passe'}) }}
-                            {{ form_row(registrationForm.password.second, {'label': 'Confirmation de mot de passe'}) }}
-                            {{ form_row(registrationForm.agreeTerms, {'label': 'J\'accepte les condition d\'utilisation'}) }}
+        <div class="bg-dark register-bg ">
+            <h1 class="p-5 mt-5">Créer un compte</h1>
+            <div class="col-md-6 offset-3">
+                <div class="row ">
+                    {{ form_start(registrationForm) }}
+                        <div class="col-6 offset-3">
+                            <div class="form-outline">
+                                {{ form_row(registrationForm.nom, {'label': 'Nom'}) }}
+                                {{ form_row(registrationForm.prenom, {'label': 'Prénom'}) }}
+                                {{ form_row(registrationForm.telephone, {'label': 'N° de Téléphone'}) }}
+                                {{ form_row(registrationForm.email, {'label': 'Adresse email'}) }}
+                                {{ form_row(registrationForm.password.first, {'label': 'Mot de passe'}) }}
+                                {{ form_row(registrationForm.password.second, {'label': 'Confirmation de mot de passe'}) }}
+                                {{ form_row(registrationForm.agreeTerms, {'label': 'J\'accepte les condition d\'utilisation'}) }}
+                            </div>
                         </div>
-                    </div>
+                            
+                            <button type="submit" class="btn-light btn">Register</button>
                         
-                        <button type="submit" class="btn-light btn">Register</button>
+                    {{ form_end(registrationForm) }}
                     
-                {{ form_end(registrationForm) }}
-                
+                </div>
             </div>
         </div>
     </div>

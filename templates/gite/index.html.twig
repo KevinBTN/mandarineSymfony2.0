@@ -97,9 +97,17 @@
                     <p>Nombres chambres, <strong>100,00 € / nuit</strong></p>
                     <small>Note en étoile à voir..</small>
                 </div>
-                <a href="/gite/{{ gite.id }}">
-                    <img src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image de l'annonce {{ gite.titre }}" style="height:200px; width: 100%;"/>
-                </a>
+
+                {% if ((gite.id) % 2 == 1) %}
+                    <a href="/gite/{{ gite.id }}">
+                        <img src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image de l'annonce {{ gite.titre }}" style="height:200px; width: 100%;"/>
+                    </a>  
+                    {% else %}
+                    <a href="/gite/{{ gite.id }}">
+                        <img src="{{ asset('/build/photos/pexels-pixabay-259588.jpg') }}" alt="Image de l'annonce {{ gite.titre }}" style="height:200px; width: 100%;"/>
+                    </a>
+                {% endif %}
+
                 <div class="card-body">
                     <h4 class="card-title">
                         {{ gite.titre|slice(0, 20) }}
@@ -116,3 +124,4 @@
     </div>
     </div>
 {% endblock %}
+

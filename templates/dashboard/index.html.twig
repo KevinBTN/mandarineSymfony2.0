@@ -9,7 +9,7 @@
         </div>
             <div class="col-md-4 offset-4  p-4">
                 <div class="row my-4">
-                    {% if is_granted('ROLE_CLIENT', 'ROLE_PROPRIETAIRE') %}
+                    {% if is_granted('ROLE_CLIENT') %}
                         <div class="col-md-10 offset-1"><h2>Vos informations de compte </h2> </div><div class="col-md-1"><a href="#"><i class="fa fa-edit" style="font-size:30px"></i></a></div>
                         <hr>
                         <p>Nom: {{ app.user.nom | capitalize}}</p>
@@ -20,14 +20,16 @@
                         <hr>
                         <p>Email: {{ app.user.email }}</p>
                         <hr>
-                        <div class="col-md-4 offset-4"><a href="#" class="btn btn-light">Proposer son logement</a></div>
-                    {% endif %} 
-                    {% if is_granted('ROLE_PROPRIETAIRE') %}
-                    <h2>Mes annonces</h2>
-                        
+                        <div class="col-md-4 offset-4"><a href="#" class="btn btn-light">Proposer un logement</a></div>
                     {% endif %} 
                 </div>
             </div>
+                    {% if is_granted('ROLE_PROPRIETAIRE') %}
+                    <div class="mt-5">
+                    <h2>Mes annonces</h2>
+                    </div>
+                    {% endif %} 
+
     </div>
 </div>
 

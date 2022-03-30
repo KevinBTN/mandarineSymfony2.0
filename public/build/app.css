@@ -226,7 +226,18 @@ body {
   background-image: url("/build/photos/pexels-pixabay-358636.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 1920px 1900px;
+}
+
+@media screen and (max-width: 1920px) {
+  .entete{
+    background-size: 1920px 1900px;
+  }
+}
+
+@media screen and (min-width: 1930px) {
+  .entete{
+    background-size: 100% auto;
+  }
 }
 
 .corp {

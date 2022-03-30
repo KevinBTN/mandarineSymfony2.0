@@ -300,9 +300,10 @@ class Gite
         return $this;
     }
 
-    public function getContactId(): ?Contact
+    public function  getContactId(): ?Contact
     {
-        return $this->contactId;
+            return $this->contactId;
+
     }
 
     public function setContactId(?Contact $contactId): self

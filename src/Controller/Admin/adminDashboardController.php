@@ -10,6 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use App\Entity\Gite;
 use App\Entity\User;
+use App\Entity\Contact;
+use App\Entity\ContactDisponibilite;
+
 
 class adminDashboardController extends AbstractDashboardController
 {
@@ -53,5 +56,8 @@ class adminDashboardController extends AbstractDashboardController
             yield MenuItem::linktoRoute('Retour au site', 'fas fa-home', 'app_gite');
             yield MenuItem::linkToCrud('Gîtes', 'fa fa-bed', Gite::class);
             yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-users', User::class);
-    }
+            yield MenuItem::linkToCrud('Contacts', 'fa fa-phone', Contact::class);
+            yield MenuItem::linkToCrud('Disponibilité des contacts', 'fa fa-phone', ContactDisponibilite::class);
+
+        }
 }

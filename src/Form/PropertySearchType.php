@@ -15,9 +15,18 @@ class PropertySearchType extends AbstractType
     {
         $builder
             ->add('emplacement', TextType::class, [
+                'required' => false,
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Où voulez-vous aller ?'
+                ]
+            ])
+
+            ->add('nbchambremin', IntegerType::class, [
+                'required' => false,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Combien de chambre au minimum ?'
                 ]
             ])
         ;

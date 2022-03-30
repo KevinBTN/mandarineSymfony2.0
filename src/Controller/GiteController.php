@@ -32,13 +32,18 @@ class GiteController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             //on récupère le nom d'article tapé dans le formulaire
-            $gites = [];
-                $emplacement = $propertySearch->getEmplacement();   
+            $value = [];
+                $emplacement = $propertySearch->getEmplacement();
+                $nbchambremin = $propertySearch->getNbchambremin();   
                 if ($emplacement!="") {
-                    $gites = $ripo->findBy(['emplacement' => $emplacement]);
+                    $value = ['emplacement' => $emplacement];
                 
-                } 
-                else
+                }
+                if ($nbchambremin!="") {
+                    $value = $value + ['nombreDeChambres' => $nbchambremin];
+                
+                }
+                else{
     
                 $gites = $ripo->findAll();
 
@@ -47,7 +52,8 @@ class GiteController extends AbstractController
                     $request->query->getInt('page', 1) /* page number */,
                     9 /* limit par page */
                 );
-    
+            }
+                $gites = $ripo->findBy($value); 
         }
 
         return $this->render('gite/index.html.twig', [

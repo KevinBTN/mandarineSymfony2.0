@@ -16,4 +16,17 @@ class PropertySearch
         return $this;
     }
 
+    private $nbchambremin;
+
+    public function getNbchambremin(): ?string
+    {
+        return $this->nbchambremin;
+    }
+
+    public function setNbchambremin(string $nbchambremin): self
+    {
+        $this->nbchambremin = $nbchambremin;
+        return $this;
+    }
+
 }

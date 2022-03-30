@@ -1,104 +1,115 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos gites{% endblock %} 
+{% block title %}Nos gites{% endblock %}
 
 {% block stylesheets %}
-    {{ parent() }}
-    <style>
-        body{
-            font-family: Helvetica, Arial, sans-serif;
-        }
-        .entete{
-            background-image: url("/build/photos/pexels-pixabay-358636.jpg");  
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 1920px 1900px;     
-        }
-        .corp{
-            color: rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
-        } 
-        .card{
-            border-radius: 20px;
-        }
-        .first{
-            background-color: rgba(211, 211, 211, 0.6);
-            padding: 20px;
-            border-radius: 20px;
-        }
-        .pagination > li > a{
-            color: rgba(0, 0, 0, 0.5) !important;
-        }
-        .pagination > .active > a
-        {
+{{ parent() }}
+<style>
+    body {
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .entete {
+        background-image: url("/build/photos/pexels-pixabay-358636.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 1920px 1900px;
+    }
+
+    .corp {
+        color: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+    }
+
+    .card {
+        border-radius: 20px;
+    }
+
+    .first {
+        background-color: rgba(211, 211, 211, 0.6);
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .pagination>li>a {
+        color: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .pagination>.active>a {
         color: white;
         background-color: rgba(0, 0, 0, 0.5);
-        }
-        .pagination > .active > a:hover
-        {
+    }
+
+    .pagination>.active>a:hover {
         background-color: rgba(0, 0, 0, 0.5);
-        }
-        #scrollUp
-        {
+    }
+
+    #scrollUp {
         position: fixed;
-        bottom : 20px;
+        bottom: 20px;
         right: 20px;
         opacity: 0.5;
-        }
-        #scrollUp:hover
-        {
+    }
+
+    #scrollUp:hover {
         opacity: 0.8;
-        }
-    </style>
+    }
+</style>
 {% endblock %}
 
-{% block body %}   
+{% block body %}
 
 <div class="entete pt-5">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="first text-center">Les <span style="color: rgba(0, 0, 0, 0.5);">engagements</span> Gîtes Mandarine</h2>
+                <h2 class="first text-center">Les <span style="color: rgba(0, 0, 0, 0.5);">engagements</span> Gîtes
+                    Mandarine</h2>
             </div>
         </div>
         <div class="row" style="color: rgba(0, 0, 0, 0.5);">
             <div class="col-4 mt-3">
-                <img style="height: 100px; opacity: 80%;" src="{{ asset('/build/photos/kisspng-handshake-clip-art-logo-stock-photography-vector-g-startups-ch-wir-helfen-neugrnderinnen-aus-leide-5d059cac5a7743.7505357115606488763706.png') }}" alt="">
-                <p class="mt-3">Gîtes Mandarine, le leader français du tourisme chez l’habitant depuis plus de 50 ans</p>
+                <img style="height: 100px; opacity: 80%;"
+                    src="{{ asset('/build/photos/kisspng-handshake-clip-art-logo-stock-photography-vector-g-startups-ch-wir-helfen-neugrnderinnen-aus-leide-5d059cac5a7743.7505357115606488763706.png') }}"
+                    alt="">
+                <p class="mt-3">Gîtes Mandarine, le leader français du tourisme chez l’habitant depuis plus de 50 ans
+                </p>
             </div>
             <div class="col-4 mb-5 mt-3">
-                <img style="height: 100px; opacity: 70%;" src="https://cdn-icons-png.flaticon.com/512/13/13979.png" alt="">
+                <img style="height: 100px; opacity: 70%;" src="https://cdn-icons-png.flaticon.com/512/13/13979.png"
+                    alt="">
                 <p class="mt-3">Des hébergements visités et contrôlés selon un référentiel de classement national</p>
             </div>
             <div class="col-4 mb-5 mt-3">
-                <img style="height: 100px; opacity: 70%;" src="{{ asset('/build/photos/cltp4g0m565n2gbm2ks5lv6226.png') }}" alt="">
-                <p class="mt-3">Des centaines de collaborateurs au sein de nos agences locales à votre service avant, pendant et après votre séjour.</p>
+                <img style="height: 100px; opacity: 70%;"
+                    src="{{ asset('/build/photos/cltp4g0m565n2gbm2ks5lv6226.png') }}" alt="">
+                <p class="mt-3">Des centaines de collaborateurs au sein de nos agences locales à votre service avant,
+                    pendant et après votre séjour.</p>
             </div>
         </div>
     </div>
 </div>
-    <form action="" method="" class="col-6 offset-3">
-        <div class="row">
-            <div class="col-10 mt-5">
-                <label for="search" style="color: rgba(0, 0, 0, 0.5);"><strong>Destination</strong></label>
-                <input list="villes" type="text" class="form-control mt-2" id="search" placeholder="Où allez-vous ?">
-                <datalist id="villes">
-                    <option value="Marseille">
-                    <option value="Lyon">
-                    <option value="Paris">
-                    <option value="Bordeaux">                       
-                </datalist>
-            </div>
-            <div class="col-2 mt-5"><br>
-                <button type="submit" class="btn btn-secondary mt-2">Rechercher</button>
-            </div>  
-        </div>      
-    </form>
-    <div class="mt-5" style="color: rgba(0, 0, 0, 0.5);">
-        <h4>Choisissez parmi nos {{ gites.getTotalItemCount }} Gîtes actuellement disponibles !</h4>
-    </div>
+<div class="container col-6 offset-3">>
+    {{ form_start(form) }}
 
-    <div class="container mt-2 px-5 py-5 corp">
+    <div class="form-row align-items-end">
+        <div class="col">
+            {{ form_row(form.emplacement) }}
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Rechercher</button>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>
+<div class="mt-5" style="color: rgba(0, 0, 0, 0.5);">
+    <h4>Choisissez parmi nos Gîtes actuellement disponibles !</h4>
+</div>
+
+<div class="container mt-2 px-5 py-5 corp">
     <div class="row col">
         {% for gite in gites %}
         <div class="col-xl-4 col-md-6 col-sm-12 my-3 article">
@@ -110,13 +121,15 @@
                 </div>
 
                 {% if ((gite.id) % 2 == 1) %}
-                    <a href="/gite/{{ gite.id }}">
-                        <img src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image de l'annonce {{ gite.titre }}" style="height:200px; width: 100%;"/>
-                    </a>  
-                    {% else %}
-                    <a href="/gite/{{ gite.id }}">
-                        <img src="{{ asset('/build/photos/pexels-pixabay-259588.jpg') }}" alt="Image de l'annonce {{ gite.titre }}" style="height:200px; width: 100%;"/>
-                    </a>
+                <a href="/gite/{{ gite.id }}">
+                    <img src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Image de l'annonce {{ gite.titre }}" style="height:200px; width: 100%;" />
+                </a>
+                {% else %}
+                <a href="/gite/{{ gite.id }}">
+                    <img src="{{ asset('/build/photos/pexels-pixabay-259588.jpg') }}"
+                        alt="Image de l'annonce {{ gite.titre }}" style="height:200px; width: 100%;" />
+                </a>
                 {% endif %}
 
                 <div class="card-body">
@@ -130,12 +143,13 @@
         </div>
         {% endfor %}
     </div>
+    {# COMMENTAIRE POUR L'INSTANT
     <div class="d-flex justify-content-center mt-3">
         {{ knp_pagination_render(gites, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
     </div>
-    </div>
-    <div id="scrollUp">
-        <a href="#top"><img src="{{ asset('/build/photos/to_top.png') }}"/></a>
-    </div>
+    #}
+</div>
+<div id="scrollUp">
+    <a href="#top"><img src="{{ asset('/build/photos/to_top.png') }}" /></a>
+</div>
 {% endblock %}
-

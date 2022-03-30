@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\PropertySearch;
+use App\Form\PropertySearchType;
 use App\Entity\Gite;
 use App\Repository\GiteRepository;
 use Knp\Component\Pager\PaginatorInterface;
@@ -15,6 +17,11 @@ class GiteController extends AbstractController
     #[Route('/gite', name: 'app_gite')]
     public function index(Request $request, GiteRepository $ripo, PaginatorInterface $paginator)
     {
+
+        $propertySearch = new PropertySearch();
+        $form = $this->createForm(PropertySearchType::class,$propertySearch);
+        $form->handleRequest($request);
+
         $gites = $ripo->findAll();
 
         $gites = $paginator->paginate(
@@ -23,7 +30,20 @@ class GiteController extends AbstractController
             9 /* limit par page */
         );
 
+        if($form->isSubmitted()) {
+            //on récupère le nom d'article tapé dans le formulaire
+            $gites= [];
+                $emplacement = $propertySearch->getEmplacement();   
+                if ($emplacement!="") 
+                    $gites= $ripo->findBy(['emplacement' => $emplacement] );
+                else
+    
+                $gites = $ripo->findAll();
+    
+            }
+
         return $this->render('gite/index.html.twig', [
+            'form' => $form->createView(),
             'gites' => $gites
         ]);
     }

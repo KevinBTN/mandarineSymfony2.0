@@ -184,4 +184,9 @@ class Contact
 
         return $this;
     }
+    public function __toString() {
+        return $this->id;
+        return $this->nom;
+        return $this->prenom;
+    }
 }

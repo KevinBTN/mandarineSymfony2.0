@@ -26,17 +26,9 @@
                             <hr>
                             <p>Email: {{ app.user.email }}</p>
                             <hr>
-                        {% if 'ROLE_CLIENT' in app.user.getroles(TRUE)   %}
-                            <div class="col-md-4 offset-4">
-                            <a href="#" class="btn btn-light">Ajouter une annonce</a></div>
-                        {% endif %} 
+
                     </div>
                 </div>
-                        {% if is_granted('ROLE_PROPRIETAIRE') %}
-                        <div class="mt-5">
-                        <h2>Mes annonces</h2>
-                        </div>
-                        {% endif %} 
 
         </div>
 

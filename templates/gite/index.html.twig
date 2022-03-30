@@ -4,57 +4,6 @@
 
 {% block stylesheets %}
 {{ parent() }}
-<style>
-    body {
-        font-family: Helvetica, Arial, sans-serif;
-    }
-
-    .entete {
-        background-image: url("/build/photos/pexels-pixabay-358636.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: 1920px 1900px;
-    }
-
-    .corp {
-        color: rgba(0, 0, 0, 0.5);
-        border-radius: 20px;
-    }
-
-    .card {
-        border-radius: 20px;
-    }
-
-    .first {
-        background-color: rgba(211, 211, 211, 0.6);
-        padding: 20px;
-        border-radius: 20px;
-    }
-
-    .pagination>li>a {
-        color: rgba(0, 0, 0, 0.5) !important;
-    }
-
-    .pagination>.active>a {
-        color: white;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .pagination>.active>a:hover {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    #scrollUp {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        opacity: 0.5;
-    }
-
-    #scrollUp:hover {
-        opacity: 0.8;
-    }
-</style>
 {% endblock %}
 
 {% block body %}

@@ -30,17 +30,25 @@ class GiteController extends AbstractController
             9 /* limit par page */
         );
 
-        if($form->isSubmitted()) {
+        if($form->isSubmitted() && $form->isValid()){
             //on récupère le nom d'article tapé dans le formulaire
-            $gites= [];
+            $gites = [];
                 $emplacement = $propertySearch->getEmplacement();   
-                if ($emplacement!="") 
-                    $gites= $ripo->findBy(['emplacement' => $emplacement] );
+                if ($emplacement!="") {
+                    $gites = $ripo->findBy(['emplacement' => $emplacement]);
+                
+                } 
                 else
     
                 $gites = $ripo->findAll();
+
+                $gites = $paginator->paginate(
+                    $gites,
+                    $request->query->getInt('page', 1) /* page number */,
+                    9 /* limit par page */
+                );
     
-            }
+        }
 
         return $this->render('gite/index.html.twig', [
             'form' => $form->createView(),

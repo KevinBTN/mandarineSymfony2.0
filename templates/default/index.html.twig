@@ -9,9 +9,11 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+            <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
                     {% endblock %}
 
         {% block javascripts %}
+        <script src="{{ asset('build/accueil.js') }}" defer></script>
         {% endblock %}
     </head>
 
@@ -21,8 +23,13 @@
       <div class="site-wrapper-inner">
         
         <div class="container">
-
-
+          <h1 class="titre1 mb-5"> 
+            <span
+              class="txt-rotate text-start"
+              data-period="1000"
+              data-rotate='["Gîtes Mandarine", "Vous souhaite", "La bienvenue !"]'>
+            </span>
+          </h1>
 
           <div class="inner cover">
             <h1 class="cover-heading">Envie de vous dépayser?</h1>

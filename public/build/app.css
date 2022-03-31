@@ -49,6 +49,16 @@ body {
   display: table-cell;
   vertical-align: top;
 }
+
+.titre1 {
+  font-weight: 200;
+  margin: 0.4em 0;
+}
+
+.titre1 { 
+  font-size: 3.5em; 
+}
+
 .cover-container {
   margin-right: auto;
   margin-left: auto;

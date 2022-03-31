@@ -40,7 +40,6 @@ class GiteController extends AbstractController
                 $maxSurface = $propertySearch->getmaxSurface();  
                 if ($emplacement!="") {
                     $gites = $ripo->findBy(['emplacement' => $emplacement]);
-                    var_dump($gites);
                 
                 }
                 if ($nbchambremin!="") {

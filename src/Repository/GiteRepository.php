@@ -70,8 +70,7 @@ class GiteRepository extends ServiceEntityRepository
             $temp->andWhere('a.surface <= :maxVals')
             ->setParameter('maxVals', $criteria->getmaxSurface());
         }
-            return $temp->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
+            return $temp->orderBy('a.id', 'DESC')
             ->getQuery()
             ->getResult();
 

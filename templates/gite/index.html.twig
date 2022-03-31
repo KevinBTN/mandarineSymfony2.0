@@ -47,18 +47,20 @@
     <div class="row">
         
             {{ form_row(form.emplacement) }}
+            <div id="rechav" class="row" style="visibility:hidden; height:0";>
             {{ form_row(form.nbchambremin) }}
-            <div class="col">
+            <div class="col-6">
             {{ form_row(form.minPrice) }}
             </div>
-            <div class="col">
+            <div class="col-6">
             {{ form_row(form.maxPrice) }}
             </div>
-            <div class="col">
+            <div class="col-6">
             {{ form_row(form.minSurface) }}
             </div>
-            <div class="col">
+            <div class="col-6">
             {{ form_row(form.maxSurface) }}
+            </div>
             </div>
         
 
@@ -70,6 +72,8 @@
     </div>
     {{ form_end(form) }}
 </div>
+<button id="btnrechav" onclick="rechercheAvancee()">Recherche Avancée (j'suis bg la hein ?)</button>
+
 
 <div class="mt-5" style="color: rgba(0, 0, 0, 0.5);">
     <h4>Choisissez parmi nos Gîtes actuellement disponibles !</h4>

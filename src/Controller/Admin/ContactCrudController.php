@@ -12,14 +12,14 @@ class ContactCrudController extends AbstractCrudController
         return Contact::class;
     }
 
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        yield IdField::new('id')->onlyOnIndex();
+        yield AssociationField::new('contactId');
+        yield ChoiceField::new('jour')->setChoices(['Lundi' => 'Lundi', 'Mardi' => 'Mardi', 'Mercredi' => 'Mercredi', 'Jeudi'=>'Jeudi', 'Vendredi'=>'Vendredi', 'Samedi'=>'Samedi', 'Dimanche'=>'Dimanche']);
+        yield TimeField::new('heureDebut');
+        yield TimeField::new('heureFin');
     }
-    */
+    
 }

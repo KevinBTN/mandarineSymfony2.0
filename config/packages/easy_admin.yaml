@@ -1,0 +1,23 @@
+# config/packages/easy_admin.yaml
+easy_admin:
+  design:
+    form_theme:
+      - "@VichUploader/Form/fields.html.twig"
+  entities:
+    Gite:
+      # ...
+      list:
+        fields:
+          - {
+              property: "image",
+              type: "image",
+              base_path: "%app.path.gite_images%",
+            }
+      # ...
+      show:
+        fields:
+          - {
+              property: "image",
+              type: "image",
+              base_path: "%app.path.gite_images%",
+            }

@@ -57,7 +57,7 @@ class adminDashboardController extends AbstractDashboardController
             yield MenuItem::linkToCrud('Gîtes', 'fa fa-bed', Gite::class);
             yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-users', User::class);
             yield MenuItem::linkToCrud('Contacts', 'fa fa-phone', Contact::class);
-            yield MenuItem::linkToCrud('Disponibilité des contacts', 'fa fa-phone', ContactDisponibilite::class);
+            yield MenuItem::linkToCrud('Disponibilité des contacts', 'fa fa-id-card-o', ContactDisponibilite::class);
 
         }
 }

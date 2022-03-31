@@ -25,7 +25,7 @@ class ContactDisponibilite
     /**
      * @ORM\Column(type="time")
      */
-    private $haureDebut;
+    private $heureDebut;
 
     /**
      * @ORM\Column(type="time")
@@ -55,14 +55,14 @@ class ContactDisponibilite
         return $this;
     }
 
-    public function getHaureDebut(): ?\DateTimeInterface
+    public function getHeureDebut(): ?\DateTimeInterface
     {
-        return $this->haureDebut;
+        return $this->heureDebut;
     }
 
-    public function setHaureDebut(\DateTimeInterface $haureDebut): self
+    public function setHeureDebut(\DateTimeInterface $heureDebut): self
     {
-        $this->haureDebut = $haureDebut;
+        $this->heureDebut = $heureDebut;
 
         return $this;
     }

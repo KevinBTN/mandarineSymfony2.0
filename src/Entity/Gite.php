@@ -8,11 +8,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * Gite
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\GiteRepository")
  * @Vich\Uploadable
+ * @ORM\Table(name="gite")
+ * @ORM\HasLifecycleCallbacks()
  */
 #[ORM\Entity(repositoryClass: GiteRepository::class)]
 class Gite
@@ -340,6 +343,7 @@ class Gite
 
     }
 
+
     public function setContactId(?Contact $contactId): self
     {
         $this->contactId = $contactId;
@@ -347,6 +351,10 @@ class Gite
         return $this;
     }
 
+
+
+
+    
     public function getNote()
     {
             return $this->note;
@@ -374,5 +382,6 @@ class Gite
         return $this->surface;
         return $this->nombreDeCouchages;
         return $this->nombreDeChambres;
+        
     }
 }

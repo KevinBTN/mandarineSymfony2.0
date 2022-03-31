@@ -15,6 +15,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Gite|null findOneBy(array $criteria, array $orderBy = null)
  * @method Gite[]    findAll()
  * @method Gite[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Gite|null findOneByIdJoinedToCategory(int $giteId)
  */
 class GiteRepository extends ServiceEntityRepository
 {
@@ -102,6 +103,22 @@ class GiteRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
 
+    }
+       /**
+     * @return Gite[]
+     */
+    public function findOneByIdJoinedToContact(int $giteId): ?Gite
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT g, c 
+            FROM App\Entity\Gite g
+            INNER JOIN g.contactId c
+            WHERE g.id = :id'
+        )->setParameter('id', $giteId);
+
+        return $query->getOneOrNullResult();
     }
 
     // /**

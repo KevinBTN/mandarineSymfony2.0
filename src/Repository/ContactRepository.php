@@ -45,6 +45,20 @@ class ContactRepository extends ServiceEntityRepository
         }
     }
 
+    public function findOneByIdJoinedToCategory(int $giteId): ?Contact
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT g, c 
+            FROM App\Entity\Gite g
+            INNER JOIN g.contactId c
+            WHERE g.id = :id'
+        )->setParameter('id', $giteId);
+
+        return $query->getOneOrNullResult();
+    }
+
     // /**
     //  * @return Contact[] Returns an array of Contact objects
     //  */
@@ -59,8 +73,8 @@ class ContactRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
-    }
-    */
+    }*/
+    
 
     /*
     public function findOneBySomeField($value): ?Contact

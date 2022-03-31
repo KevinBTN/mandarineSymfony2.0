@@ -12,6 +12,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+use Doctrine\Persistence\ManagerRegistry;
+
+
 class GiteController extends AbstractController
 {
     #[Route('/gite', name: 'app_gite')]
@@ -67,4 +70,12 @@ class GiteController extends AbstractController
             'gite' => $gite
         ]);
     }
+    public function contactNom(ManagerRegistry $doctrine, int $id): Response
+    {
+        $gite = $doctrine->getRepository(Gite::class)->findOneByIdJoinedToContact($id);
+
+        return $contactNom = $gite->getNom();
+
+    }
+
 }

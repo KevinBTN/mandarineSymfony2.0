@@ -6,12 +6,13 @@ use App\Repository\GiteRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-
-
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Gite
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 #[ORM\Entity(repositoryClass: GiteRepository::class)]
 class Gite
@@ -37,9 +38,16 @@ class Gite
     private $description;
     /**
      * @ORM\Column(type="string", length=255)
+     * @var string
      */
     #[ORM\Column(type: 'string', length: 255)]
     private $image;
+    /**
+     * @Vich\UploadableField(mapping="gite_images", fileNameProperty="image")
+     * @var File
+     * 
+     */
+    private $imageFile;
     /**
      * @ORM\Column(type="boolean", length=255)
      */
@@ -76,10 +84,16 @@ class Gite
     #[ORM\Column(type: 'integer')]
     private $nombreDeCouchages;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     #[ORM\Column(type: 'integer')]
     private $nombreDeChambres;
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTimeInterface|null
+     */
+    private $updatedAt;
 
     /**
      * @ORM\OneToMany(targetEntity=CalendrierDeDisponibilite::class, mappedBy="giteId", orphanRemoval=true)
@@ -132,16 +146,30 @@ class Gite
         return $this;
     }
 
-    public function getImage(): ?string
+    public function setImageFile(?File $imageFile = null): void
     {
-        return $this->image;
+        $this->imageFile = $imageFile;
+
+        // Only change the updated af if the file is really uploaded to avoid database updates.
+        // This is needed when the file should be set when loading the entity.
+        if ($this->imageFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
     }
 
-    public function setImage(string $image): self
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
     {
         $this->image = $image;
+    }
 
-        return $this;
+    public function getImage()
+    {
+        return $this->image;
     }
 
     public function getAnimaux(): ?bool

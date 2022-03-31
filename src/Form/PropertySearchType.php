@@ -15,6 +15,7 @@ class PropertySearchType extends AbstractType
     {
         $builder
             ->add('emplacement', TextType::class, [
+                'required' => false,
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Où voulez-vous aller ?'
@@ -22,6 +23,7 @@ class PropertySearchType extends AbstractType
             ])
 
             ->add('nbchambremin', IntegerType::class, [
+                'required' => false,
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Combien de chambre voulez-vous ?'
@@ -29,6 +31,7 @@ class PropertySearchType extends AbstractType
             ])
 
             ->add('minPrice', IntegerType::class, [
+                'required' => false,
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Prix minimum ?'
@@ -36,6 +39,7 @@ class PropertySearchType extends AbstractType
             ])
 
             ->add('maxPrice', IntegerType::class, [
+                'required' => false,
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Prix maximum ?'
@@ -43,6 +47,7 @@ class PropertySearchType extends AbstractType
             ])
 
             ->add('minSurface', IntegerType::class, [
+                'required' => false,
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Surface minimum ?'
@@ -50,6 +55,7 @@ class PropertySearchType extends AbstractType
             ])
 
             ->add('maxSurface', IntegerType::class, [
+                'required' => false,
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Surface maximum ?'

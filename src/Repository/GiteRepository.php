@@ -49,18 +49,28 @@ class GiteRepository extends ServiceEntityRepository
 
     public function findByForSearch($criteria){
 
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.emplacement = :emplacement')
-            ->setParameter('emplacement', $criteria->getEmplacement())
-            ->andWhere('a.tarifBasseSaison >= :minVal')
-            ->setParameter('minVal', $criteria->getminPrice())
-            ->andWhere('a.tarifBasseSaison <= :maxVal')
-            ->setParameter('maxVal', $criteria->getmaxPrice())
-            ->andWhere('a.surface >= :minVals')
-            ->setParameter('minVals', $criteria->getminSurface())
-            ->andWhere('a.surface <= :maxVals')
-            ->setParameter('maxVals', $criteria->getmaxSurface())
-            ->orderBy('a.id', 'ASC')
+        $temp = $this->createQueryBuilder('a');
+        if($criteria->getEmplacement() != ""){
+            $temp->andWhere('a.emplacement = :emplacement')
+            ->setParameter('emplacement', $criteria->getEmplacement());
+        }
+        if($criteria->getminPrice() != ""){
+            $temp->andWhere('a.tarifBasseSaison >= :minVal')
+            ->setParameter('minVal', $criteria->getminPrice());
+        }
+        if($criteria->getmaxPrice() != ""){
+            $temp->andWhere('a.tarifBasseSaison <= :maxVal')
+            ->setParameter('maxVal', $criteria->getmaxPrice());
+        }
+        if($criteria->getminSurface() != ""){
+            $temp->andWhere('a.surface >= :minVals')
+            ->setParameter('minVals', $criteria->getminSurface());
+        }
+        if($criteria->getmaxSurface() != ""){
+            $temp->andWhere('a.surface <= :maxVals')
+            ->setParameter('maxVals', $criteria->getmaxSurface());
+        }
+            return $temp->orderBy('a.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult();

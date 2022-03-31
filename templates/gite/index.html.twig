@@ -3,8 +3,11 @@
 {% block title %}Nos gites{% endblock %}
 
 {% block stylesheets %}
-{{ parent() }}
+    {{ parent() }}
 {% endblock %}
+
+{% block javascripte %}    
+{% endblock  %}
 
 {% block body %}
 
@@ -13,27 +16,26 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2 class="first text-center">Les <span style="color: rgba(0, 0, 0, 0.5);">engagements</span> Gîtes
-                    Mandarine</h2>
+                    Mandarine
+                </h2>
             </div>
         </div>
         <div class="row" style="color: rgba(0, 0, 0, 0.5);">
             <div class="col-4 mt-3">
-                <img style="height: 100px; opacity: 80%;"
+                <img 
+                    style="height: 100px; opacity: 80%;"
                     src="{{ asset('/build/photos/kisspng-handshake-clip-art-logo-stock-photography-vector-g-startups-ch-wir-helfen-neugrnderinnen-aus-leide-5d059cac5a7743.7505357115606488763706.png') }}"
-                    alt="">
-                <p class="mt-3">Gîtes Mandarine, le leader français du tourisme chez l’habitant depuis plus de 50 ans
-                </p>
+                    alt=""
+                >
+                <p class="mt-3">Gîtes Mandarine, le leader français du tourisme chez l’habitant depuis plus de 50 ans</p>
             </div>
             <div class="col-4 mb-5 mt-3">
-                <img style="height: 100px; opacity: 70%;" src="https://cdn-icons-png.flaticon.com/512/13/13979.png"
-                    alt="">
+                <img style="height: 100px; opacity: 70%;" src="https://cdn-icons-png.flaticon.com/512/13/13979.png" alt="">
                 <p class="mt-3">Des hébergements visités et contrôlés selon un référentiel de classement national</p>
             </div>
             <div class="col-4 mb-5 mt-3">
-                <img style="height: 100px; opacity: 70%;"
-                    src="{{ asset('/build/photos/cltp4g0m565n2gbm2ks5lv6226.png') }}" alt="">
-                <p class="mt-3">Des centaines de collaborateurs au sein de nos agences locales à votre service avant,
-                    pendant et après votre séjour.</p>
+                <img style="height: 100px; opacity: 70%;" src="{{ asset('/build/photos/cltp4g0m565n2gbm2ks5lv6226.png') }}" alt="">
+                <p class="mt-3">Des centaines de collaborateurs au sein de nos agences locales à votre service avant, pendant et après votre séjour.</p>
             </div>
         </div>
     </div>
@@ -56,6 +58,7 @@
     </div>
     {{ form_end(form) }}
 </div>
+
 <div class="mt-5" style="color: rgba(0, 0, 0, 0.5);">
     <h4>Choisissez parmi nos Gîtes actuellement disponibles !</h4>
 </div>
@@ -65,6 +68,7 @@
         {% for gite in gites %}
         <div class="col-xl-4 col-md-6 col-sm-12 my-3 article">
             <div class="card bg-light mb-3" style="height: 500px;">
+
                 <div class="card-header">
                     <strong>{{ gite.emplacement }}</strong><br>
                     <p>{{ gite.nombreDeChambres }} chambres, à partir de <strong>{{ gite.tarifBasseSaison }} € / nuit</strong></p>
@@ -103,4 +107,5 @@
 <div id="scrollUp">
     <a href="#top"><img src="{{ asset('/build/photos/to_top.png') }}" /></a>
 </div>
+
 {% endblock %}

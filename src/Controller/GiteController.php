@@ -35,6 +35,12 @@ class GiteController extends AbstractController
                 $criteria = $form->getData();
                 $gites = $ripo->findByForSearch($criteria);
 
+                $gites = $paginator->paginate(
+                    $gites,
+                    $request->query->getInt('page', 1) /* page number */,
+                        9 /* limit par page */
+                    );
+
         }else{
     
             $gites = $ripo->findAll();

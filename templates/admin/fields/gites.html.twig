@@ -1,0 +1,32 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{# @var field \EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto #}
+{# @var entity \EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto #}
+{% if ea.crud.currentAction == 'detail' %}
+<div >
+    
+    <table class="table table-striped ">
+
+        <tr ><th>Id</th>
+            <th>Titre</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Détails</th></tr>
+        {% for value in field.value %}
+        <tr>
+            <td>{{ value.id }}</td>
+            <td>{{ value.titre }}</td>
+            <td><img style="height: 75px" src="/build/photos/upload/{{ value.image }}"</td>
+            <td>{{ value.description }}</td>
+            {% set url = ea_url()
+                .setController('App\\Controller\\Admin\\GiteCrudController')
+                .setAction('detail')
+                .setEntityId(value.id)%}
+            <td><a href="{{ url }}">Détails</a></td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% else %}
+    <span class="badge badge-secondary">{{ field.formattedValue }}</span>
+{% endif %}

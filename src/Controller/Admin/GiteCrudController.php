@@ -28,13 +28,14 @@ class GiteCrudController extends AbstractCrudController
         
         yield IdField::new('id')->onlyOnIndex();
         yield 'titre';
-        yield TextField::new('description')->onlyOnDetail()->onlyOnForms();
+        yield TextField::new('description')
+            ->hideOnIndex();
         yield ImageField::new('image', 'Image')
-            ->onlyOnIndex()
+            ->hideOnForm()
             ->setBasePath('/build/photos/upload/');
         yield VichImageField::new('imageFile', 'Image')->onlyOnForms()
         ->setDownloadUri('app.path.gite_images' . $this->getParameter('app.path.gite_images'))
-        ->setImageUri($this->getParameter('app.path.gite_images'))->setRequired(true);
+        ->setImageUri($this->getParameter('app.path.gite_images'));
         yield AssociationField::new('contactId');
         yield 'animaux';
         yield 'animauxPrix';
@@ -68,6 +69,7 @@ class GiteCrudController extends AbstractCrudController
             ->setHelp('edit', '...')
         ;
     }
+
     public function configureActions(Actions $actions): Actions
 {
     return $actions

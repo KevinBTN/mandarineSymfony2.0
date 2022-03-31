@@ -32,17 +32,16 @@ class GiteController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             //on récupère le nom d'article tapé dans le formulaire
-            $value = [];
                 $emplacement = $propertySearch->getEmplacement();
                 $nbchambremin = $propertySearch->getNbchambremin(); 
                 $minPrice = $propertySearch->getminPrice(); 
                 $maxPrice = $propertySearch->getmaxPrice();  
                 if ($emplacement!="") {
-                    $value = ['emplacement' => $emplacement];
+                    $gites = $ripo->findBy(['emplacement' => $emplacement]);
                 
                 }
                 if ($nbchambremin!="") {
-                    $value = $value + ['nombreDeChambres' => $nbchambremin];
+                    $gites = $ripo->findBy(['nombreDeChambres' => $nbchambremin]);
                 
                 }
                 if ($minPrice!="" && $maxPrice!="") {

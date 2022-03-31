@@ -31,37 +31,10 @@ class GiteController extends AbstractController
         );
 
         if($form->isSubmitted() && $form->isValid()){
-            //on récupère le nom d'article tapé dans le formulaire
-                $emplacement = $propertySearch->getEmplacement();
-                $nbchambremin = $propertySearch->getNbchambremin(); 
-                $minPrice = $propertySearch->getminPrice(); 
-                $maxPrice = $propertySearch->getmaxPrice();
-                $minSurface = $propertySearch->getminSurface(); 
-                $maxSurface = $propertySearch->getmaxSurface();  
-                if ($emplacement!="") {
-                    $gites = $ripo->findBy(['emplacement' => $emplacement]);
-                
-                }
-                if ($nbchambremin!="") {
-                    $gites = $ripo->findBy(['nombreDeChambres' => $nbchambremin]);
-                
-                }
-                if ($minPrice=="" && $maxPrice!="") {
-                    $gites = $ripo->findBytarifBasseSaison(0, $maxPrice);
-                
-                }
-                if ($minPrice!="" && $maxPrice=="") {
-                    $gites = $ripo->findBytarifBasseSaison($minPrice, 1000);
-                
-                }
-                if ($minSurface=="" && $maxSurface!="") {
-                    $gites = $ripo->findBySurface(0, $maxSurface);
-                
-                }
-                if ($minSurface!="" && $maxSurface=="") {
-                    $gites = $ripo->findBySurface($minSurface, 1000);
-                
-                }
+            
+                $criteria = $form->getData();
+                $gites = $ripo->findByForSearch($criteria);
+
         }else{
     
             $gites = $ripo->findAll();

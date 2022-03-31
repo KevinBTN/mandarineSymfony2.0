@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Gite;
+use App\Entity\PropertySearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -46,6 +47,26 @@ class GiteRepository extends ServiceEntityRepository
         }
     }
 
+    public function findByForSearch($criteria){
+
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.emplacement = :emplacement')
+            ->setParameter('emplacement', $criteria->getEmplacement())
+            ->andWhere('a.tarifBasseSaison >= :minVal')
+            ->setParameter('minVal', $criteria->getminPrice())
+            ->andWhere('a.tarifBasseSaison <= :maxVal')
+            ->setParameter('maxVal', $criteria->getmaxPrice())
+            ->andWhere('a.surface >= :minVals')
+            ->setParameter('minVals', $criteria->getminSurface())
+            ->andWhere('a.surface <= :maxVals')
+            ->setParameter('maxVals', $criteria->getmaxSurface())
+            ->orderBy('a.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+
+    }
+    
     public function findBytarifBasseSaison($minValue, $maxValue){
 
         return $this->createQueryBuilder('a')

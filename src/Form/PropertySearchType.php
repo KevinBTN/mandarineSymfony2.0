@@ -26,7 +26,23 @@ class PropertySearchType extends AbstractType
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Combien de chambre au minimum ?'
+                    'placeholder' => 'Combien de chambre voulez-vous ?'
+                ]
+            ])
+
+            ->add('minPrice', IntegerType::class, [
+                'required' => false,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Prix minimum ?'
+                ]
+            ])
+
+            ->add('maxPrice', IntegerType::class, [
+                'required' => false,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Prix maximum ?'
                 ]
             ])
         ;

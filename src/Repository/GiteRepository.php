@@ -46,6 +46,20 @@ class GiteRepository extends ServiceEntityRepository
         }
     }
 
+    public function findBytarifBasseSaison($minValue, $maxValue){
+
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.tarifBasseSaison >= :minVal')
+            ->setParameter('minVal', $minValue)
+            ->andWhere('a.tarifBasseSaison <= :maxVal')
+            ->setParameter('maxVal', $maxValue)
+            ->orderBy('a.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+
+    }
+
     // /**
     //  * @return Gite[] Returns an array of Gite objects
     //  */

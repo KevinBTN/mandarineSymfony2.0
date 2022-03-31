@@ -7,6 +7,8 @@ class PropertySearch
     private $nbchambremin;
     private $minPrice;
     private $maxPrice;
+    private $minSurface;
+    private $maxSurface;
 
     public function getEmplacement(): ?string
     {
@@ -49,6 +51,28 @@ class PropertySearch
     public function setmaxPrice(int $maxPrice): self
     {
         $this->maxPrice = $maxPrice;
+        return $this;
+    }
+
+    public function getminSurface(): ?int
+    {
+        return $this->minSurface;
+    }
+
+    public function setminSurface(int $minSurface): self
+    {
+        $this->minSurface = $minSurface;
+        return $this;
+    }
+
+    public function getmaxSurface(): ?int
+    {
+        return $this->maxSurface;
+    }
+
+    public function setmaxSurface(int $maxSurface): self
+    {
+        $this->maxSurface = $maxSurface;
         return $this;
     }
 

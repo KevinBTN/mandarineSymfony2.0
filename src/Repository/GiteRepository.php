@@ -60,6 +60,20 @@ class GiteRepository extends ServiceEntityRepository
 
     }
 
+    public function findBySurface($minValue, $maxValue){
+
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.surface >= :minVal')
+            ->setParameter('minVal', $minValue)
+            ->andWhere('b.surface <= :maxVal')
+            ->setParameter('maxVal', $maxValue)
+            ->orderBy('b.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+
+    }
+
     // /**
     //  * @return Gite[] Returns an array of Gite objects
     //  */

@@ -45,6 +45,22 @@ class PropertySearchType extends AbstractType
                     'placeholder' => 'Prix maximum ?'
                 ]
             ])
+
+            ->add('minSurface', IntegerType::class, [
+                'required' => false,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Surface minimum ?'
+                ]
+            ])
+
+            ->add('maxSurface', IntegerType::class, [
+                'required' => false,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Surface maximum ?'
+                ]
+            ])
         ;
     }
 

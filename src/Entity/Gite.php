@@ -111,6 +111,11 @@ class Gite
      */
     private $contactId;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $note;
+
     public function __construct()
     {
         $this->calendrierDeDisponibilites = new ArrayCollection();
@@ -337,6 +342,19 @@ class Gite
     public function setContactId(?Contact $contactId): self
     {
         $this->contactId = $contactId;
+
+        return $this;
+    }
+
+    public function getNote()
+    {
+            return $this->note;
+
+    }
+
+    public function setNote(int $note): self
+    {
+        $this->note = $note;
 
         return $this;
     }

@@ -188,5 +188,8 @@ class Contact
         return $this->id;
         return $this->nom;
         return $this->prenom;
+        return $this->telephone;
+        return $this->gite;
+        return $this->contactDisponibilite;
     }
 }

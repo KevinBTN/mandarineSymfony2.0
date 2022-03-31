@@ -94,6 +94,10 @@ class Gite
      * @var \DateTimeInterface|null
      */
     private $updatedAt;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $note;
 
     /**
      * @ORM\OneToMany(targetEntity=CalendrierDeDisponibilite::class, mappedBy="giteId", orphanRemoval=true)
@@ -111,10 +115,7 @@ class Gite
      */
     private $contactId;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $note;
+    
 
     public function __construct()
     {

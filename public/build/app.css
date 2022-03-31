@@ -242,17 +242,25 @@ body {
 
 .corp {
   color: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
 }
 
 .card {
   border-radius: 20px;
 }
 
+.card-header {
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+}
+
+.card-body {
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
 .first {
   background-color: rgba(211, 211, 211, 0.6);
   padding: 20px;
-  border-radius: 20px;
 }
 
 .pagination > li > a {

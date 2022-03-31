@@ -48,18 +48,18 @@ class GiteController extends AbstractController
                     $gites = $ripo->findBytarifBasseSaison($minPrice, $maxPrice);
                 
                 }
-                else{
+        }else{
     
-                $gites = $ripo->findAll();
+            $gites = $ripo->findAll();
 
-                $gites = $paginator->paginate(
-                    $gites,
-                    $request->query->getInt('page', 1) /* page number */,
-                    9 /* limit par page */
-                );
-            }
-                //$gites = $ripo->findBy($value);
+            $gites = $paginator->paginate(
+            $gites,
+            $request->query->getInt('page', 1) /* page number */,
+                9 /* limit par page */
+            );
         }
+                //$gites = $ripo->findBy($value);
+        
 
         return $this->render('gite/index.html.twig', [
             'form' => $form->createView(),

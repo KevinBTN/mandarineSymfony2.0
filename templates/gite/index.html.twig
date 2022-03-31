@@ -42,13 +42,19 @@
 <div class="container col-6 offset-3">
     {{ form_start(form) }}
 
-    <div class="form-row align-items-end">
-        <div class="col">
+    <div class="row">
+        
             {{ form_row(form.emplacement) }}
             {{ form_row(form.nbchambremin) }}
-        </div>
+            <div class="col">
+            {{ form_row(form.minPrice) }}
+            </div>
+            <div class="col">
+            {{ form_row(form.maxPrice) }}
+            </div>
+        
 
-        <div class="col">
+        <div class="row">
             <div class="form-group">
                 <button type="submit" class="btn btn-success">Rechercher</button>
             </div>

@@ -34,13 +34,19 @@ class GiteController extends AbstractController
             //on récupère le nom d'article tapé dans le formulaire
             $value = [];
                 $emplacement = $propertySearch->getEmplacement();
-                $nbchambremin = $propertySearch->getNbchambremin();   
+                $nbchambremin = $propertySearch->getNbchambremin(); 
+                $minPrice = $propertySearch->getminPrice(); 
+                $maxPrice = $propertySearch->getmaxPrice();  
                 if ($emplacement!="") {
                     $value = ['emplacement' => $emplacement];
                 
                 }
                 if ($nbchambremin!="") {
                     $value = $value + ['nombreDeChambres' => $nbchambremin];
+                
+                }
+                if ($minPrice!="" && $maxPrice!="") {
+                    $gites = $ripo->findBytarifBasseSaison($minPrice, $maxPrice);
                 
                 }
                 else{
@@ -53,7 +59,7 @@ class GiteController extends AbstractController
                     9 /* limit par page */
                 );
             }
-                $gites = $ripo->findBy($value); 
+                //$gites = $ripo->findBy($value);
         }
 
         return $this->render('gite/index.html.twig', [

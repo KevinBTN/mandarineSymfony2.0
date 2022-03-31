@@ -40,18 +40,27 @@ class GiteController extends AbstractController
                 $maxSurface = $propertySearch->getmaxSurface();  
                 if ($emplacement!="") {
                     $gites = $ripo->findBy(['emplacement' => $emplacement]);
+                    var_dump($gites);
                 
                 }
                 if ($nbchambremin!="") {
                     $gites = $ripo->findBy(['nombreDeChambres' => $nbchambremin]);
                 
                 }
-                if ($minPrice!="" && $maxPrice!="") {
-                    $gites = $ripo->findBytarifBasseSaison($minPrice, $maxPrice);
+                if ($minPrice=="" && $maxPrice!="") {
+                    $gites = $ripo->findBytarifBasseSaison(0, $maxPrice);
                 
                 }
-                if ($minSurface!="" && $maxSurface!="") {
-                    $gites = $ripo->findBySurface($minSurface, $maxSurface);
+                if ($minPrice!="" && $maxPrice=="") {
+                    $gites = $ripo->findBytarifBasseSaison($minPrice, 1000);
+                
+                }
+                if ($minSurface=="" && $maxSurface!="") {
+                    $gites = $ripo->findBySurface(0, $maxSurface);
+                
+                }
+                if ($minSurface!="" && $maxSurface=="") {
+                    $gites = $ripo->findBySurface($minSurface, 1000);
                 
                 }
         }else{

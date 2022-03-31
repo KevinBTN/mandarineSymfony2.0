@@ -14,6 +14,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 
 class UserCrudController extends AbstractCrudController implements EventSubscriberInterface
 {
@@ -75,6 +77,14 @@ class UserCrudController extends AbstractCrudController implements EventSubscrib
         // the help message displayed to end users (it can contain HTML tags)
         ->setHelp('edit', '...')
         
+    ;
+}
+public function configureActions(Actions $actions): Actions
+{
+    return $actions
+        // ...
+        ->add(Crud::PAGE_INDEX, Action::DETAIL)
+        ->add(Crud::PAGE_EDIT, Action::SAVE_AND_ADD_ANOTHER)
     ;
 }
 public static function getSubscribedEvents()

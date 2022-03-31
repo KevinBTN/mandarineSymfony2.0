@@ -141,12 +141,12 @@
 
                 {% if ((gite.id) % 2 == 1) %}
                 <a href="/gite/{{ gite.id }}">
-                    <img src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    <img src="/build/photos/upload/{{ gite.image }}"
                         alt="Image de l'annonce {{ gite.titre }}" style="height:200px; width: 100%;" />
                 </a>
                 {% else %}
                 <a href="/gite/{{ gite.id }}">
-                    <img src="{{ asset('/build/photos/pexels-pixabay-259588.jpg') }}"
+                    <img src="/build/photos/upload/{{ gite.image }}"
                         alt="Image de l'annonce {{ gite.titre }}" style="height:200px; width: 100%;" />
                 </a>
                 {% endif %}

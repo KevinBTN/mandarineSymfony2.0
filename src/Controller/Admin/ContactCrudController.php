@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+
 
 class ContactCrudController extends AbstractCrudController
 {
@@ -16,10 +18,11 @@ class ContactCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield IdField::new('id')->onlyOnIndex();
-        yield AssociationField::new('contactId');
-        yield ChoiceField::new('jour')->setChoices(['Lundi' => 'Lundi', 'Mardi' => 'Mardi', 'Mercredi' => 'Mercredi', 'Jeudi'=>'Jeudi', 'Vendredi'=>'Vendredi', 'Samedi'=>'Samedi', 'Dimanche'=>'Dimanche']);
-        yield TimeField::new('heureDebut');
-        yield TimeField::new('heureFin');
+        yield 'nom';
+        yield 'prenom';
+        yield 'telephone';
+        yield 'commentaire';
+
     }
     
 }

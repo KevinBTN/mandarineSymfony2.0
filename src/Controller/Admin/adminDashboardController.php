@@ -8,12 +8,12 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use App\Entity\Gite;
 use App\Entity\User;
 use App\Entity\Contact;
 use App\Entity\ContactDisponibilite;
-
+use App\Entity\GiteOptionPrix;
+use App\Entity\Option;
 
 class adminDashboardController extends AbstractDashboardController
 {
@@ -59,6 +59,8 @@ class adminDashboardController extends AbstractDashboardController
             yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-users', User::class);
             yield MenuItem::linkToCrud('Contacts', 'fa fa-phone', Contact::class);
             yield MenuItem::linkToCrud('Disponibilité des contacts', 'fa fa-id-card-o', ContactDisponibilite::class);
+            yield MenuItem::linkToCrud('Option des gites', 'fa fa-bars', GiteOptionPrix::class);
+            yield MenuItem::linkToCrud('Gestion des options', 'fa fa-bars', Option::class);
 
         }
 

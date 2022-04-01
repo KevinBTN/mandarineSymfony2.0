@@ -369,7 +369,6 @@ class Gite
     }
     
     public function __toString() {
-        return $this->id;
-        
+        return $this->id.': '.$this->titre.' à '.$this->emplacement;
     }
 }

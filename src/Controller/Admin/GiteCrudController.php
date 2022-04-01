@@ -13,7 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use App\Admin\field\VichImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -52,6 +52,9 @@ class GiteCrudController extends AbstractCrudController
         yield 'surface';
         yield 'nombreDeCouchages';
         yield 'nombreDeChambres';
+        yield 'note';
+        yield CollectionField::new('giteOptionPrixes', 'Options disponibles')->setTemplatePath('admin/fields/optionPrix.html.twig')->onlyOnDetail();
+
         
     }
     public function configureCrud(Crud $crud): Crud

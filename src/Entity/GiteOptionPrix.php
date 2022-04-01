@@ -74,4 +74,8 @@ class GiteOptionPrix
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->idOption.'COUCOU';
+    }
 }

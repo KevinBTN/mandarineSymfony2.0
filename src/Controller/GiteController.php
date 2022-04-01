@@ -67,15 +67,7 @@ class GiteController extends AbstractController
     public function show(Gite $gite)
     {
         return $this->render('gite/gite.html.twig', [
-            'gite' => $gite
-        ]);
+            'gite' => $gite        ]);
     }
-    /*public function contactNom(ManagerRegistry $doctrine, int $id): Response
-    {
-        $gite = $doctrine->getRepository(Gite::class)->findOneByIdJoinedToContact($id);
-
-        return $contactNom = $gite->getNom();
-
-    }*/
 
 }

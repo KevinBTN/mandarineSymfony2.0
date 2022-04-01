@@ -1,0 +1,27 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{# @var field \EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto #}
+{# @var entity \EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto #}
+{% if ea.crud.currentAction == 'detail' %}
+<div >
+    
+    <table class="table table-striped ">
+
+        <tr ><th>Id</th>
+            <th>Option</th>
+        {% for value in field.value %}
+        <tr>
+            <td>{{ value.id }}</td>
+            <td>{{ value.nom }}</td>
+            {% set url = ea_url()
+                .setController('App\\Controller\\Admin\\OptionCrudController')
+                .setAction('detail')
+                .setEntityId(value.id)%}
+            <td><a href="{{ url }}">Détails</a></td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% else %}
+    <span class="badge badge-secondary">{{ field.formattedValue }}</span>
+{% endif %}

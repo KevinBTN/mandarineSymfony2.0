@@ -370,18 +370,6 @@ class Gite
     
     public function __toString() {
         return $this->id;
-        return $this->titre;
-        return $this->description;
-        return $this->contactId;
-        return $this->image;
-        return $this->animaux;
-        return $this->animauxPrix;
-        return $this->tarifHauteSaison;
-        return $this->tarifBasseSaison;
-        return $this->emplacement;
-        return $this->surface;
-        return $this->nombreDeCouchages;
-        return $this->nombreDeChambres;
         
     }
 }

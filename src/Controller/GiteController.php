@@ -70,12 +70,12 @@ class GiteController extends AbstractController
             'gite' => $gite
         ]);
     }
-    public function contactNom(ManagerRegistry $doctrine, int $id): Response
+    /*public function contactNom(ManagerRegistry $doctrine, int $id): Response
     {
         $gite = $doctrine->getRepository(Gite::class)->findOneByIdJoinedToContact($id);
 
         return $contactNom = $gite->getNom();
 
-    }
+    }*/
 
 }

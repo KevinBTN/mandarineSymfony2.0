@@ -4,6 +4,10 @@ namespace App\Controller\Admin;
 
 use App\Entity\Gite;
 use App\Entity\Contact;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
+use Doctrine\Persistence\ManagerRegistry;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -27,6 +31,7 @@ class GiteCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
+
         
         yield IdField::new('id')->onlyOnIndex();
         yield 'titre';
@@ -38,8 +43,7 @@ class GiteCrudController extends AbstractCrudController
         yield VichImageField::new('imageFile', 'Image')->onlyOnForms()
         ->setDownloadUri('app.path.gite_images' . $this->getParameter('app.path.gite_images'))
         ->setImageUri($this->getParameter('app.path.gite_images'));
-        yield AssociationField::new('contactId');
-        yield TextField::new('contactNom');
+        yield AssociationField::new('contactId', 'Contact');
         yield 'animaux';
         yield 'animauxPrix';
         yield 'tarifHauteSaison';

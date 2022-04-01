@@ -184,12 +184,7 @@ class Contact
 
         return $this;
     }
-    public function __toString() {
-        return $this->id;
-        return $this->nom;
-        return $this->prenom;
-        return $this->telephone;
-        return $this->gite;
-        return $this->contactDisponibilite;
+    public function __toString(): string {
+        return $this->nom.' '.$this->prenom;
     }
 }
